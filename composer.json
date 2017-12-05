@@ -58,6 +58,10 @@
             "phploc --log-csv ./build/logs/phploc.csv src",
             "@cs",
             "@test"
+        ],
+        "box": [
+            "rm -rf hello.phar",
+            "box build"
         ]
     },
     "extra": {
