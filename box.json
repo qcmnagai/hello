@@ -1,0 +1,9 @@
+{
+    "alias": "hello.phar",
+    "chmod": "0755",
+    "compactors": [],
+    "directories": ["src", "vendor"],
+    "main": "main.php",
+    "output": "hello.phar",
+    "stub": true
+}
