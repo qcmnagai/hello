@@ -1,5 +1,4 @@
 <?php
-
 namespace Qcmnagai\Hello;
 
 use Symfony\Component\Console\Command\Command;
@@ -13,8 +12,7 @@ class HelloCommand extends Command
     {
         $this
             ->setName('hello')
-            ->addArgument('name', InputArgument::OPTIONAL, 'name.', 'World')
-        ;
+            ->addArgument('name', InputArgument::OPTIONAL, 'name.', 'World');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
