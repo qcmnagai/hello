@@ -7,5 +7,5 @@ use Symfony\Component\Console\Application;
 $command = new \Qcmnagai\Hello\HelloCommand();
 $application = new Application();
 $application->add($command);
-$application->setDefaultCommand($command->getName());
+$application->setDefaultCommand($command->getName(), true);
 $application->run();
