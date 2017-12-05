@@ -3,22 +3,22 @@ namespace Qcmnagai\Hello;
 
 use PHPUnit\Framework\TestCase;
 
-class HelloTest extends TestCase
+class HelloCommandTest extends TestCase
 {
     /**
-     * @var Hello
+     * @var HelloCommand
      */
     protected $skeleton;
 
     protected function setUp()
     {
         parent::setUp();
-        $this->skeleton = new Hello;
+        $this->skeleton = new HelloCommand;
     }
 
     public function testNew()
     {
         $actual = $this->skeleton;
-        $this->assertInstanceOf('\Qcmnagai\Hello\Hello', $actual);
+        $this->assertInstanceOf('\Qcmnagai\Hello\HelloCommand', $actual);
     }
 }
