@@ -4,6 +4,6 @@
     "compactors": [],
     "directories": ["src", "vendor"],
     "main": "main.php",
-    "output": "hello.phar",
+    "output": "dist/hello.phar",
     "stub": true
 }

@@ -36,13 +36,22 @@
         }
     },
     "scripts": {
+        "post-install-cmd": [
+            "rm -rf ./bin",
+            "mkdir -p ./bin",
+            "curl -LSs https://box-project.github.io/box2/installer.php | php && mv ./box.phar ./bin",
+            "wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip -O ./ghr_linux_amd64.zip && unzip ./ghr_linux_amd64.zip -d ./bin && rm ./ghr_linux_amd64.zip"
+        ],
+        "post-update-cmd": [
+            "rm -rf ./bin",
+            "mkdir -p ./bin",
+            "curl -LSs https://box-project.github.io/box2/installer.php | php && mv ./box.phar ./bin",
+            "wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip -O ./ghr_linux_amd64.zip && unzip ./ghr_linux_amd64.zip -d ./bin && rm ./ghr_linux_amd64.zip"
+        ],
         "test": [
             "phpmd src text ./phpmd.xml",
             "@cs",
             "phpunit"
-        ],
-        "coverage": [
-            "php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"
         ],
         "cs": [
             "php-cs-fixer fix -v --dry-run",
@@ -53,15 +62,13 @@
             "phpcbf src"
         ],
         "build": [
-            "rm -rf ./build; mkdir -p ./build/logs ./build/pdepend",
-            "pdepend --jdepend-xml=./build/logs/jdepend.xml --jdepend-chart=./build/pdepend/dependencies.svg --overview-pyramid=./build/pdepend/overview-pyramid.svg src",
-            "phploc --log-csv ./build/logs/phploc.csv src",
-            "@cs",
-            "@test"
+            "rm -rf ./dist",
+            "mkdir -p ./dist",
+            "php -d phar.readonly=0 ./bin/box.phar build"
         ],
-        "box": [
-            "rm -rf hello.phar",
-            "box build"
+        "release": [
+            "@build",
+            "./bin/ghr -u qcmnagai v$(./dist/hello.phar --version | cut -d \" \" -f 2) ./dist"
         ]
     },
     "extra": {
