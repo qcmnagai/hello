@@ -12,6 +12,7 @@ jobs:
       - save_cache:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
+            - bin
             - vendor
       - run: composer test
   release:
