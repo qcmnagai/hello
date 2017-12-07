@@ -40,13 +40,13 @@
             "rm -rf ./bin",
             "mkdir -p ./bin",
             "curl -LSs https://box-project.github.io/box2/installer.php | php && mv ./box.phar ./bin",
-            "wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip -O ./ghr_linux_amd64.zip && unzip ./ghr_linux_amd64.zip -d ./bin && rm ./ghr_linux_amd64.zip"
+            "wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_$(uname | tr \"[:upper:]\" \"[:lower:]\")_amd64.zip -O ./ghr_amd64.zip && unzip ./ghr_amd64.zip -d ./bin && rm ./ghr_amd64.zip"
         ],
         "post-update-cmd": [
             "rm -rf ./bin",
             "mkdir -p ./bin",
             "curl -LSs https://box-project.github.io/box2/installer.php | php && mv ./box.phar ./bin",
-            "wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip -O ./ghr_linux_amd64.zip && unzip ./ghr_linux_amd64.zip -d ./bin && rm ./ghr_linux_amd64.zip"
+            "wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_$(uname | tr \"[:upper:]\" \"[:lower:]\")_amd64.zip -O ./ghr_amd64.zip && unzip ./ghr_amd64.zip -d ./bin && rm ./ghr_amd64.zip"
         ],
         "test": [
             "phpmd src text ./phpmd.xml",
