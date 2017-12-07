@@ -5,7 +5,7 @@
         "Skeleton",
         "PSR"
     ],
-    "homepage": "https://github.com/qcmnagai/hello",
+    "homepage": "https://github.com/qcmnagai/hello-php",
     "license": "MIT",
     "authors": [
         {
@@ -37,12 +37,6 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "mkdir -p ./bin",
-            "[ ! -f ./bin/box.phar ] && curl -LSs https://box-project.github.io/box2/installer.php | php && mv ./box.phar ./bin || true",
-            "[ ! -f ./bin/ghr ] && wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_$(uname | tr \"[:upper:]\" \"[:lower:]\")_amd64.zip -O ./ghr_amd64.zip && unzip ./ghr_amd64.zip -d ./bin && rm ./ghr_amd64.zip || true"
-        ],
-        "post-update-cmd": [
-            "rm -rf ./bin",
             "mkdir -p ./bin",
             "[ ! -f ./bin/box.phar ] && curl -LSs https://box-project.github.io/box2/installer.php | php && mv ./box.phar ./bin || true",
             "[ ! -f ./bin/ghr ] && wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_$(uname | tr \"[:upper:]\" \"[:lower:]\")_amd64.zip -O ./ghr_amd64.zip && unzip ./ghr_amd64.zip -d ./bin && rm ./ghr_amd64.zip || true"
