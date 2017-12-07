@@ -1,9 +1,9 @@
 version: 2
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/php:7.0-node-browsers
-    working_directory: ~/hello
+    working_directory: ~/hello-php
     steps:
       - checkout
       - restore_cache:
@@ -17,7 +17,7 @@ jobs:
   release:
     docker:
       - image: circleci/php:7.0-node-browsers
-    working_directory: ~/hello
+    working_directory: ~/hello-php
     steps:
       - checkout
       - restore_cache:
@@ -29,10 +29,10 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-      - test
+      - build
       - release:
           requires:
-            - test
+            - build
           filters:
             branches:
               only: master
