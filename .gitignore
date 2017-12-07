@@ -9,7 +9,6 @@ nbproject
 cache.properties
 build
 phpunit.xml
-composer.lock
 vendor/
 .php_cs.cache
 *.phar
